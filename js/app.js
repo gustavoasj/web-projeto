@@ -13,7 +13,7 @@
         this.lastpost = singlePost[0];
         
         this.islastpost = function(){
-            this.lastpost = singlePost[0];
+            return lastpost;
         };
         this.islastcategorypost = function(category){
             for(i=0; i<singlePost.length;i++){
@@ -28,10 +28,12 @@
     
     var singlePost = [
         {
-            title: "Titulo",
+            title: "Long Traffic Jams Occur in The City Because there is a Demo Rising Oil Prices",
             subtitle: "subtitle",
-            description: "Bla bla bla",
-            images:["images/1/2.jpg"],
+            body: "",
+            images:["images/blog/1.jpg"],
+            imageClass:["img-responsive"],
+            imageSpan:["Example : This is image caption fo sample"],
             category: "Tecnologia",
             comments: [],
             date: "4/01/2015",
