@@ -1,8 +1,8 @@
 (function () {
     var app = angular.module('news', []);
     app.controller('DateController', function () {
-        this.day = 'domingo';
-        this.numday = 4;
+        this.day = 'segunda';
+        this.numday = 5;
         this.month = 'janeiro';
         this.year = 2015;
     });
