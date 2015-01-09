@@ -29,8 +29,21 @@
         this.addComment = function(post){
             post.comments.push(this.comment);           
             this.comment = {};
-    };
-  });
+        };
+    });
+    
+    app.controller('viewsController', ['$filter', function ($filter){
+        var orderBy = $filter('orderBy');
+        this.posts = singlePost;
+        this.posts = orderBy(this.posts, '-views', false);
+    }]);
+    
+    app.controller('popularController', ['$filter', function ($filter){
+        var orderBy = $filter('orderBy');
+        this.posts = singlePost;
+        this.posts = orderBy(this.posts, '-comments', false);
+        
+    }]);
 
     
     var singlePost = [
