@@ -25,8 +25,7 @@
 
 	<!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="js/vendor/slick/slick.css">
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -141,30 +140,39 @@
 					</div>
 					
 				</div>
-				
+				<!--Post Principal (mais recente)-->
 				<div class="col-md-9 block-right">
-					<div class="bl-featured-big">
+					<div class="bl-featured-big" ng-controller="ContentController as contentCtrl">
 						<div class="bl-meta">
-							<span><i class="fa fa-comments-o"></i> 4 Commentários</span><br>
-							<span><i class="fa fa-heart-o"></i> 23 Likes</span>
+							<span><i class="fa fa-comments-o"></i> {{contentCtrl.lastpost.comments.length}} Commentários</span><br>
 						</div>
-						<img src="images/xtra/2.jpg" class="img-responsive" alt=""/>
+						<img ng-src={{contentCtrl.lastpost.images[0]}} class="img-responsive" alt=""/>
 						<div class="bl-info">
-							<span>Entretenimento</span>
-							<h3><a href="single_post.html">Claritas Est Etiam Processus Dynamicus, Qui Sequitur Mutationem </a></h3>
+							<span>{{contentCtrl.lastpost.category}}</span>
+							<h3><a href="single_post.html">{{contentCtrl.lastpost.title}} </a></h3>
 							<a class="rmore" href="#">Continue Reading <i class="fa fa-arrow-right"></i></a>
 						</div>
 					</div>
 					
-					<!-- Featured News -->
+					<!-- Noticias em destaque -->
 					<div class="featured-news">
 						<h5><span>Notícias em Destaque</span></h5>
 						<div class="row">
 							<div class="col-md-6">
+                                <!--<div class="fn-inner" ng-controller="viewsController as destaque">
+									<div class="fn-thumb"  ng-repeat="post in destaque.posts  " >
+										<img ng-src={{post.images[0]}} class="img-responsive" alt=""/>
+										<div class="fn-meta">{{post.category}}   <span>{{post.comments}} <i class="fa fa-comments"></i></span></div>
+                                    <h4><a href={{post.link}}>{{post.title}}</a></h4>
+									<em>Posted on {{post.date}}</em>
+									<p>{{post.subtitle}}</p>
+									</div>
+									
+								</div> -->
 								<div class="fn-inner">
 									<div class="fn-thumb">
 										<img src="images/xtra/3.jpg" class="img-responsive" alt=""/>
-										<div class="fn-meta">Tecnologia <span>3 <i class="fa fa-comments"></i></span></div>
+										<div class="fn-meta">Tecnologia   <span>3 <i class="fa fa-comments"></i></span></div>
 									</div>
 									<h4><a href="single_post.html">Duis autem vel irure dolor in hendrerit in vulputate</a></h4>
 									<em>Posted on November 02, 2014</em>
