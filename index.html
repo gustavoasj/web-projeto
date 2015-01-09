@@ -43,7 +43,7 @@
 		<div class="col-md-6" ng-controller="DateController as dateCtrl">
 			<ul class="tb-left">
                 <!--Pegar data do sistema-->
-				<li class="tbl-date">Hoje é: <span>{{dateCtrl.day}}, {{dateCtrl.numday}} de {{dateCtrl.month}}, {{dateCtrl.year}}</span></li>
+				<li class="tbl-date">Hoje é: <span>{{dateCtrl.date}}</span></li>
 				
 			</ul>
 		</div>
@@ -146,7 +146,7 @@
 						<div class="bl-meta">
 							<span><i class="fa fa-comments-o"></i> {{contentCtrl.lastpost.comments.length}} Commentários</span><br>
 						</div>
-						<img ng-src={{contentCtrl.lastpost.images[0]}} class="img-responsive" alt=""/>
+						<img ng-src={{contentCtrl.lastpost.image}} class="img-responsive" alt=""/>
 						<div class="bl-info">
 							<span>{{contentCtrl.lastpost.category}}</span>
 							<h3><a href="single_post.html">{{contentCtrl.lastpost.title}} </a></h3>
@@ -159,56 +159,37 @@
 						<h5><span>Notícias em Destaque</span></h5>
 						<div class="row">
 							<div class="col-md-6">
-                                <!--<div class="fn-inner" ng-controller="viewsController as destaque">
-									<div class="fn-thumb"  ng-repeat="post in destaque.posts  " >
-										<img ng-src={{post.images[0]}} class="img-responsive" alt=""/>
-										<div class="fn-meta">{{post.category}}   <span>{{post.comments}} <i class="fa fa-comments"></i></span></div>
+                                <div class="fn-inner" ng-controller="viewsController as destaque">
+									<div class="fn-thumb" ng-repeat="post in destaque.posts |limitTo:2" >
+										<img ng-src={{post.image}} class="img-responsive" alt=""/>
+										<div class="fn-meta">{{post.category}}   <span>{{post.comments.length}} <i class="fa fa-comments"></i></span></div>
                                     <h4><a href={{post.link}}>{{post.title}}</a></h4>
 									<em>Posted on {{post.date}}</em>
-									<p>{{post.subtitle}}</p>
-									</div>
-									
-								</div> -->
-								<div class="fn-inner">
-									<div class="fn-thumb">
-										<img src="images/xtra/3.jpg" class="img-responsive" alt=""/>
-										<div class="fn-meta">Tecnologia   <span>3 <i class="fa fa-comments"></i></span></div>
-									</div>
-									<h4><a href="single_post.html">Duis autem vel irure dolor in hendrerit in vulputate</a></h4>
-									<em>Posted on November 02, 2014</em>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ex ea commodo consequat ...</p>
+									<p>{{post.body | limitTo: 140}}...</p>
+									</div>	
+								</div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fn-inner" ng-controller="viewsController as destaque">
+									<div class="fn-thumb"  >
+										<img ng-src={{destaque.posts[2].image}} class="img-responsive" alt=""/>
+										<div class="fn-meta">{{destaque.posts[2].category}}   <span>{{destaque.posts[2].comments.length}} <i class="fa fa-comments"></i></span></div>
+                                    <h4><a href={{post.link}}>{{destaque.posts[2].title}}</a></h4>
+									<em>Posted on {{destaque.posts[2].date}}</em>
+									<p>{{destaque.posts[2].body | limitTo: 140}}...</p>
+									</div>	
 								</div>
-								<div class="fn-inner">
-									<div class="fn-thumb">
-										<img src="images/xtra/4.jpg" class="img-responsive" alt=""/>
-										<div class="fn-meta">Esporte <span>3 <i class="fa fa-comments"></i></span></div>
-									</div>
-									<h4><a href="single_post.html">Duis autem vel irure dolor in hendrerit in vulputate</a></h4>
-									<em>Posted on November 02, 2014</em>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ex ea commodo consequat ...</p>
-								</div>
-							</div>
-							
-							<div class="col-md-6">
-								<div class="fn-inner">
-									<div class="fn-thumb">
-										<img src="images/xtra/5.jpg" class="img-responsive" alt=""/>
-										<div class="fn-meta">Cultura <span>3 <i class="fa fa-comments"></i></span></div>
-									</div>
-									<h4><a href="single_post.html">Duis autem vel irure dolor in hendrerit in vulputate</a></h4>
-									<em>Posted on November 02, 2014</em>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ex ea commodo consequat ...</p>
-								</div>
-								<div class="fn-inner">
-									<div class="fn-thumb">
-										<img src="images/xtra/6.jpg" class="img-responsive" alt=""/>
-										<div class="fn-meta">Viagem <span>3 <i class="fa fa-comments"></i></span></div>
-									</div>
-									<h4><a href="single_post.html">Duis autem vel irure dolor in hendrerit in vulputate</a></h4>
-									<em>Posted on November 02, 2014</em>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ex ea commodo consequat ...</p>
-								</div>
-							</div>
+                                
+                                <div class="fn-inner" ng-controller="viewsController as destaque">
+									<div class="fn-thumb"  >
+										<img ng-src={{destaque.posts[3].image}} class="img-responsive" alt=""/>
+										<div class="fn-meta">{{destaque.posts[3].category}}   <span>{{destaque.posts[3].comments.length}} <i class="fa fa-comments"></i></span></div>
+                                    <h4><a href={{post.link}}>{{destaque.posts[3].title}}</a></h4>
+									<em>Posted on {{destaque.posts[3].date}}</em>
+									<p>{{destaque.posts[2].body | limitTo: 140}}...</p>
+									</div>	
+								</div>  
+                            </div>
 						</div>
 					</div>
 				</div>
