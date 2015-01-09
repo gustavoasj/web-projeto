@@ -1,109 +1,61 @@
 (function () {
     var app = angular.module('news', []);
     app.controller('DateController', function () {
-        this.day = 'segunda';
-        this.numday = 5;
-        this.month = 'janeiro';
-        this.year = 2015;
+        this.date = new Date();
     });
 
 
-    app.controller('ContentController', ['$filter', function ($filter){
-        var orderBy = $filter('orderBy');
+    app.controller('ContentController', function (){
         this.posts = singlePost;
-        this.posts = orderBy(this.posts, '-views', false);
-        this.lastpost = singlePost[0];
-        this.predicate = 'views';
+      /*  this.lastpost = singlePost[0];
+        
         this.islastpost = function(){
-            this.lastpost = singlePost[0];
+            return lastpost;
         };
         this.islastcategorypost = function(category){
             for(i=0; i<singlePost.length;i++){
                 if(singlePost.category === category){
-                    //lastpost = singlePost[i];
+                    this.lastpost = singlePost[i];
                     break;
                 }
             }
-        };
-        
-        
-        
-    }]);
+        };*/
+    });
     
-    app.controller('viewsController', ['$filter', function ($filter){
-        var orderBy = $filter('orderBy');
-        this.posts = singlePost;
-        this.posts = orderBy(this.posts, '-views', false);
-        
-    }]);
+    
+    app.controller('CommentController',function(){
+        this.comment = {};
+    
+        this.addComment = function(post){
+            post.comments.push(this.comment);           
+            this.comment = {};
+    };
+  });
 
-    app.controller('popularController', ['$filter', function ($filter){
-        var orderBy = $filter('orderBy');
-        this.posts = singlePost;
-        this.posts = orderBy(this.posts, '-comments', false);
-        
-    }]);
     
     var singlePost = [
         {
-            id: 0,
-            title: "Titulo",
+            title: "Long Traffic Jams Occur in The City Because there is a               Demo Rising Oil Prices",
             subtitle: "subtitle",
-            description: "Bla bla bla",
-            images:["images/1/4.jpg"],
+            body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam el eum iriure dolor in hendrerit in vulputate velit esse molestie consequat; est usus legentis in iis qui facit eorum claritatem. Investigationes lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Mirum est notare quam littera.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.",
+            image:"images/blog/1.jpg",            
+            imageSpan:"Example : This is image caption fo sample",
             category: "Tecnologia",
-            comments: [],
-            date: "4/01/2015",
+            comments: [{
+                nome:"Bob Marchetti",
+                hora:"",
+                body:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat"},
+                {
+                nome:"David Pena",
+                hora:"",
+                body:"Colé"}
+            ],
+            author: "John Smith",
+            dia:"4",
+            mes:"Novembro",
+            ano:"2015",
             link: "/post",
-            views: 2
-        },
-        {
-            id: 1,
-            title: "Titulo2",
-            subtitle: "subtitle2",
-            description: "Bla bla bla",
-            images:["images/1/3.jpg"],
-            category: "Esporte",
-            comments: ["Post ruim"],
-            date: "4/01/2015",
-            link: "/post",
-            views: 10
-        },
-        {
-            id: 2,
-            title: "Titulo3",
-            subtitle: "subtitle3",
-            description: "Bla bla bla",
-            images:["images/1/5.jpg"],
-            category: "Cultura",
-            comments: [],
-            date: "4/01/2015",
-            link: "/post",
-            views: 8
-        },
-        {
-            id: 3,
-            title: "Titulo4",
-            subtitle: "subtitle4",
-            description: "Bla bla bla",
-            images:["images/1/6.jpg"],
-            category: "Viagem",
-            comments: [],
-            date: "4/01/2015",
-            link: "/post",
-            views: 5
-        },
-        {
-            id: 4,
-            title: "Titulo5",
-            subtitle: "subtitle5",
-            description: "Bla bla bla",
-            images:["images/1/7.jpg"],
-            category: "Politica",
-            comments: [],
-            date: "4/01/2015",
-            link: "/post",
-            views: 3
+            views: 0
         }
     ];
 })();
