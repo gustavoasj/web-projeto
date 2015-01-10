@@ -202,36 +202,36 @@
 		</div>
 	</div>
 	
-	<div class="main-content container">
+	<div class="main-content container" ng-controller="CategoryController as categoriaCtrl" ng-init="categoriaNome = categoriaCtrl.categoria">
 	
 		<!-- Category Content -->
 		<div class="col-md-8 blog-single">
 			<div class="bs-meta">
-				<span class="bs-cat">Uncategorized</span>
+				<span class="bs-cat">{{categoriaNome}}</span>
 				
 			</div>
 			
 			
-			<div class="related-posts related-posts-cat">
+			<div class="related-posts related-posts-cat" ng-repeat="atual in categoriaCtrl.postsCategoria" >
 				<ul>
-					<li>
+					<li ng-if="atual.category == categoriaNome">
 						<div class="col-md-3">
 							<div class="rp-date">
-								<span>November</span>
-								04
-								<span><em>/</em> 2014</span>
+								<span>{{atual.mes}}</span>
+								{{atual.dia}}
+								<span><em>/</em> {{atual.ano}}</span>
 							</div>
 						</div>
 						<div class="col-md-9">
-							<img src="images/blog/1/1.jpg" class="img-responsive" alt=""/>
+							<img ng-src="{{atual.image}}" class="img-responsive"alt=""/>     
 							<div class="rp-inner">
-								<span class="rp-cat">Uncategorized</span>
-								<h4><a href="single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h4>
+								<span class="rp-cat">{{atual.category}}</span>
+								<h4><a href="single_post.html">{{atual.title}}</a></h4>
 								<a href="#" class="rp-more">Read more  <em>&#8594;</em></a>
 							</div>
 						</div>
 					</li>
-					
+					<!--
 					<li>
 						<div class="col-md-3">
 							<div class="rp-date">
@@ -392,7 +392,7 @@
 								<a href="#" class="rp-more">Read more  <em>&#8594;</em></a>
 							</div>
 						</div>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 			

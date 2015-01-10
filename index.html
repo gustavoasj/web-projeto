@@ -40,11 +40,10 @@
 <!-- Topbar -->
 <div class="top-bar container">
 	<div class="row">
-		<div class="col-md-6" ng-controller="DateController as dateCtrl">
+		<div class="col-md-6" ng-controller="DateController as data">
 			<ul class="tb-left">
-                <!--Pegar data do sistema-->
-				<li class="tbl-date">Hoje é: <span>{{dateCtrl.date}}</span></li>
-				
+				<li class="tbl-date">Hoje é: <span>{{data.date | date:'yyyy-MM-dd'}}</span></li>
+				<li class="tbl-temp"><i class="fa fa-sun-o"></i>32 C</li>
 			</ul>
 		</div>
 		<div class="col-md-6">
@@ -79,7 +78,7 @@
 						<ul>
 							
 							<li><a href="#">Esporte</a></li>
-							<li><a href="#">Sem categoria</a></li>
+							<li><a href="#">Tecnologia</a></li>
 							<li><a href="#">Entretenimento</a></li>
 							<li><a href="#">Cultura</a></li>
 							<li><a href="#">Viagem</a></li>
