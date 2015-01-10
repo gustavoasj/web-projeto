@@ -36,10 +36,11 @@
     <!-- Topbar -->
 <div class="top-bar container">
 	<div class="row">
-		<div class="col-md-6" ng-controller="DateController as dateCtrl">
+		<div class="col-md-6" ng-controller="DateController as data">
 			<ul class="tb-left">
                 <!--Pegar data do sistema-->
-				<li class="tbl-date">Hoje é: <span>{{dateCtrl.date}}</span></li>
+				<li class="tbl-date">Hoje é: <span>{{data.date | date:'yyyy-MM-dd'}}</span></li>
+				<li class="tbl-temp"><i class="fa fa-sun-o"></i>32 C</li>
 				
 			</ul>
 		</div>
@@ -105,7 +106,7 @@
             <!-- Contact -->
             <div class="col-md-12 blog-single">
                 <div class="bs-meta">
-                    <span class="bs-cat">Contact Us</span>
+                    <span class="bs-cat">Contato</span>
                 </div>
                 <div class="space30"></div>
 
@@ -121,36 +122,25 @@
                     
 
                 </div>
-                <h3>Duis Autem Veleum Iriure Dolor in Hendrerit</h3>
+                <h3>Centro Federal de Educação Tecnológica de Minas Gerais</h3>
 
                 <!-- Contact Info -->
                 <div class="c-info">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p>Estudantes de Engenharia de Computação</p>
                     <div class="space30"></div>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>Our Office Address I :</h6>
-                            <p><span>Location</span>  <em>Kaliurang St. No 104,<br>Sinduharjo, Ngaglik,<br>Sleman.</em>
+                            <h6>Nosso escritório:</h6>
+                            <p><span>Localização</span>  <em>CEFET-MG. No 104,<br>Nova Gameleira, Belo Horizonte<br>Brasil.</em>
                             </p>
-                            <p><span>Telephone</span>  <em>(0274) 9982732</em>
-                            </p>
-                            <p><span>Email</span>  <em>Staff@localhost.net</em>
-                            </p>
-                            <p><span>Open Hour</span>  <em>Monday - Friday </em>
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>Our Office Address II :</h6>
-                            <p><span>Location</span>  <em>Gejayan St. No 11</em>
-                            </p>
-                            <p><span>Telephone</span>  <em>(0274) 9982732</em>
+                            <p><span>Telefone</span>  <em>(031) 1234 7070</em>
                             </p>
                             <p><span>Email</span>  <em>Staff@localhost.net</em>
                             </p>
-                            <p><span>Open Hour</span>  <em>Monday - Friday <br>08:00 AM until 16:00 PM</em>
+                            <p><span>Horário de funcionamento</span>  <em>Segunda - Sexta </em>
                             </p>
-                            <br>
                         </div>
+                        
                     </div>
                 </div>
 
@@ -165,29 +155,21 @@
             <footer class="container"></footer>
 
                 <!-- Footer - Fixed -->
-                <div class="footer-fixed">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="footer-nav">
-                                <li><a href="#">Home</a>
-                                </li>
-                                <li><a href="#">About Us</a>
-                                </li>
-                                <li><a href="#">Contact Us</a>
-                                </li>
-                                <li><a href="#">Archives</a>
-                                </li>
-                                <li><a href="#">Contributors</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="copy1">Copyright &copy; 2014 Gazeta. Web Design by PremiumLayersi
-                                <a href="#" class="fa fa-arrow-up"></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+	<div class="footer-fixed">
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="footer-nav">
+					<li><a href="#">Início</a></li>
+					<li><a href="#">Categorias</a></li>
+					<li><a href="#">Contato</a></li>
+					
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<p class="copy1"><a href="#" class="fa fa-arrow-up"></a></p>
+			</div>
+		</div>
+	</div>
         </div>
 
         <div class="clearfix space50"></div>
