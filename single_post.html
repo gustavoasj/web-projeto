@@ -39,12 +39,12 @@
     <![endif]-->
 
 </head>
-<body ng-controller="DateController as data">
+<body >
 
 <!-- Topbar -->
 <div class="top-bar container">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-6" ng-controller="DateController as data">
 			<ul class="tb-left">
 				<li class="tbl-date">Hoje é: <span>{{data.date | date:'yyyy-MM-dd'}}</span></li>
 				<li class="tbl-temp"><i class="fa fa-sun-o"></i>32 C</li>
@@ -151,21 +151,21 @@
 	<!-- Blog Single -->
 	<div class="main-content container">
         <!--------------Content----------------->
-		<div class="col-md-8 blog-single" ng-controller="ContentController as conteudo">
+		<div class="col-md-8 blog-single" ng-controller="ContentController as conteudo" ng-init= "atual=conteudo.posts[0]">
 			<div class="bs-meta">
-				<span class="bs-cat">{{conteudo.posts[0].category}}</span>
-				<span class="bs-comments"><a href="#"><i class="fa fa-comments-o"></i> {{conteudo.posts[0].comments.length}} Comentários</a> </span>
+				<span class="bs-cat">{{atual.category}}</span>
+				<span class="bs-comments"><a href="#"><i class="fa fa-comments-o"></i> {{atual.comments.length}} Comentários</a> </span>
 			</div>
-			<h3>{{conteudo.posts[0].title}}</h3>
+			<h3>{{atual.title}}</h3>
 			<div class="row">
 				<div class="col-md-3 bs-aside">
-					<h6><span>{{conteudo.posts[0].author}}</span></h6>
+					<h6><span>{{atual.author}}</span></h6>
 					<div class="sep1"></div>
 					<div class="space10"></div>
 					<div class="rp-date">
-						<span>{{conteudo.posts[0].mes}}</span>
-						{{conteudo.posts[0].dia}}
-						<span><em>/</em> {{conteudo.posts[0].ano}}</span>
+						<span>{{atual.mes}}</span>
+						{{atual.dia}}
+						<span><em>/</em> {{atual.ano}}</span>
 					</div>
 					<div class="space30"></div>
 					<div class="sep1"></div>
@@ -179,16 +179,16 @@
 				</div>
 				
 				<div class="col-md-9" >
-                    <p> {{conteudo.posts[0].body}}</p>
+                    <p> {{atual.body}}</p>
                     
                     <div class="img-w-caption">
-						<img ng-src="{{conteudo.posts[0].image}}" class="img-responsive"alt=""/>                     
-						<span>{{conteudo.posts[0].imageSpan}}</span>
+						<img ng-src="{{atual.image}}" class="img-responsive"alt=""/>                     
+						<span>{{atual.imageSpan}}</span>
 					</div>
 					
 					
 					<div class="bs-tags">
-						<span>Categoria : <a href="#">{{conteudo.posts[0].category}}</a></span>
+						<span>Categoria : <a href="#">{{atual.category}}</a></span>
 						<!--<span>Tags : <a href="#">Basket,</a> <a href="#">Dunk,</a> <a href="#">Jump</a></span>-->
 					</div>
 					
@@ -202,12 +202,12 @@
 			<div class="comments-wrap">
 				<div id="tabwrap">
 					<ul id="tabs">
-						<li class="current"><a href="#comments">{{conteudo.posts[0].comments.length}} Comentários</a></li>
+						<li class="current"><a href="#comments">{{atual.comments.length}} Comentários</a></li>
 				    </ul>
 					
 					<div id="content">
 						<div id="comments" class="current">
-							<ul class="comments" ng-repeat="comentario in conteudo.posts[0].comments">
+							<ul class="comments" ng-repeat="comentario in atual.comments">
 								<li>
 									<div class="c-img"><img src="images/profile.png" width="80px" alt=""/></div>
 									<div class="comment-inner" >
@@ -219,7 +219,7 @@
 								
 								
                         </ul>
-        <form name="commentForm" ng-controller="CommentController as commentCtrl" ng-submit="commentCtrl.addComment(conteudo.posts[0])">
+        <form name="commentForm" ng-controller="CommentController as commentCtrl" ng-submit="commentCtrl.addComment(atual)">
 
 
                   <!--  Review Form -->

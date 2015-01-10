@@ -22,13 +22,30 @@
         };*/
     });
     
+    app.controller('CategoryController', function (){
+        this.postsCategoria = singlePost;
+        this.categoria = "Tecnologia";
+      /*  
+        this.islastpost = function(){
+            return lastpost;
+        };
+        this.islastcategorypost = function(category){
+            for(i=0; i<singlePost.length;i++){
+                if(singlePost.category === category){
+                    this.lastpost = singlePost[i];
+                    break;
+                }
+            }
+        };*/
+    });
+    
     
     app.controller('CommentController',function(){
-        this.comment = {};
+        this.comentario = {};
     
         this.addComment = function(post){
-            post.comments.push(this.comment);           
-            this.comment = {};
+            post.comments.push(this.comentario);           
+            this.comentario = {};
         };
     });
     
@@ -78,7 +95,7 @@
             body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam el eum iriure dolor in hendrerit in vulputate velit esse molestie consequat; est usus legentis in iis qui facit eorum claritatem. Investigationes lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.",
             image:"images/xtra/4.jpg",            
             imageSpan:"Example : This is image caption fo sample",
-            category: "Esporte",
+            category: "Tecnologia",
             comments: [{
                 nome:"Bob Marchetti",
                 hora:"",

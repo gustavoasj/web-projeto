@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> 
+<html ng-app="news"> 
 
 <head>
 
@@ -8,6 +8,10 @@
 	<meta name="keywords" content="HTML5 Template" />
 	<meta name="description" content="">
 	<meta name="author" content="">
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
     <title>Gazeta - Responsive Magazine Blog Template</title>
 
@@ -27,6 +31,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="js/vendor/slick/slick.css">
     <link rel="stylesheet" href="css/style.css">
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,9 +46,9 @@
 <!-- Topbar -->
 <div class="top-bar container">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-6" ng-controller="DateController as data">
 			<ul class="tb-left">
-				<li class="tbl-date">Today is: <span>Tuesday, November 4, 2014</span></li>
+				<li class="tbl-date">Hoje é: <span>{{data.date | date:'yyyy-MM-dd'}}</span></li>
 				<li class="tbl-temp"><i class="fa fa-sun-o"></i>32 C</li>
 			</ul>
 		</div>
@@ -197,36 +202,36 @@
 		</div>
 	</div>
 	
-	<div class="main-content container">
+	<div class="main-content container" ng-controller="CategoryController as categoriaCtrl" ng-init="categoriaNome = categoriaCtrl.categoria">
 	
 		<!-- Category Content -->
 		<div class="col-md-8 blog-single">
 			<div class="bs-meta">
-				<span class="bs-cat">Uncategorized</span>
+				<span class="bs-cat">{{categoriaNome}}</span>
 				
 			</div>
 			
 			
-			<div class="related-posts related-posts-cat">
+			<div class="related-posts related-posts-cat" ng-repeat="atual in categoriaCtrl.postsCategoria" >
 				<ul>
-					<li>
+					<li ng-if="atual.category == categoriaNome">
 						<div class="col-md-3">
 							<div class="rp-date">
-								<span>November</span>
-								04
-								<span><em>/</em> 2014</span>
+								<span>{{atual.mes}}</span>
+								{{atual.dia}}
+								<span><em>/</em> {{atual.ano}}</span>
 							</div>
 						</div>
 						<div class="col-md-9">
-							<img src="images/blog/1/1.jpg" class="img-responsive" alt=""/>
+							<img ng-src="{{atual.image}}" class="img-responsive"alt=""/>     
 							<div class="rp-inner">
-								<span class="rp-cat">Uncategorized</span>
-								<h4><a href="single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h4>
+								<span class="rp-cat">{{atual.category}}</span>
+								<h4><a href="single_post.html">{{atual.title}}</a></h4>
 								<a href="#" class="rp-more">Read more  <em>&#8594;</em></a>
 							</div>
 						</div>
 					</li>
-					
+					<!--
 					<li>
 						<div class="col-md-3">
 							<div class="rp-date">
@@ -387,24 +392,11 @@
 								<a href="#" class="rp-more">Read more  <em>&#8594;</em></a>
 							</div>
 						</div>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 			
-			<!-- Page nav -->
-			<div class="page-nav">
-				<span>Page</span>
-				<ul>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">...</a></li>
-					<li><a href="#">11</a></li>
-					<li><a href="#">12</a></li>
-					<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-				</ul>
-			</div>
+			
 		</div>
 		
 		<!-- Sidebar -->
