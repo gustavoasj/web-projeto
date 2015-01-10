@@ -24,11 +24,11 @@
     
     
     app.controller('CommentController',function(){
-        this.comment = {};
+        this.comentario = {};
     
         this.addComment = function(post){
-            post.comments.push(this.comment);           
-            this.comment = {};
+            post.comments.push(this.comentario);           
+            this.comentario = {};
         };
     });
     
