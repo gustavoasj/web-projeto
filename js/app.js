@@ -43,7 +43,7 @@
     app.controller('popularController', ['$filter', function ($filter){
         var orderBy = $filter('orderBy');
         this.posts = singlePost;
-        this.posts = orderBy(this.posts, '-comments', false);
+        this.posts = orderBy(this.posts, '-comments.length', false);
         
     }]);
 
@@ -82,11 +82,19 @@
             comments: [{
                 nome:"Bob Marchetti",
                 hora:"",
-                body:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat"},
-                {
+                body:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat"
+            },
+            {
                 nome:"David Pena",
                 hora:"",
-                body:"Colé"}
+                body:"Colé"
+            },
+            {
+                nome:"Fulano",
+                hora:"",
+                body:"Um comentario escroto"
+            }
+                
             ],
             author: "John Smith",
             dia:"4",
