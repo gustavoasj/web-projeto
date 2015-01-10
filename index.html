@@ -111,32 +111,14 @@
 	<div class="main-content container">
 		<div class="col-md-8 block-1">
 			<div class="row">
-				<div class="col-md-3 b1-aside">
+				<div class="col-md-3 b1-aside" ng-controller="ContentController as content">
 					<h5><span>Últimas Notícias</span></h5>
-					<div class="bla-content">
-						<div class="thumb">
-							<img src="images/xtra/1.jpg" class="img-responsive" alt=""/>
-							<span class="thumb-cat">Tecnologia</span>
-						</div>
-						<p>Posted on November 02, 2014</p>
-						<h4><a href="single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
+					<div class="bla-content" ng-repeat="post in content.posts | limitTo:5">
+						
+						<span class="cat-default">{{post.category}}</span>
+						<p>Posted on {{post.date}}</p>
+						<h4><a href={{post.link}}>{{post.title}}</a></h4>
 						<div class="sep"></div>
-						<span class="cat-default">Sport</span>
-						<p>Posted on November 02, 2014</p>
-						<h4><a href="single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-						<div class="sep"></div>
-						<span class="cat-default">Business</span>
-						<p>Posted on November 02, 2014</p>
-						<h4><a href="single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-						<div class="sep"></div>
-						<span class="cat-default">Entertainment</span>
-						<p>Posted on November 02, 2014</p>
-						<h4><a href="single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-						<div class="sep"></div>
-						<span class="cat-default">Entertainment</span>
-						<p>Posted on November 02, 2014</p>
-						<h4><a href="single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-						<div class="sep"></div>				
 					</div>
 					
 				</div>
@@ -319,11 +301,7 @@
 					</ul>
 				</div>
 			</div>
-			
-			
-			
-			
-			
+		
 			
 		</aside>
 	</div>
