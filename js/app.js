@@ -1,5 +1,6 @@
 (function () {
     var app = angular.module('news', []);
+    
     app.controller('DateController', function () {
         this.date = new Date();
     });
@@ -24,20 +25,18 @@
     
     app.controller('CategoryController', function (){
         this.postsCategoria = singlePost;
-        this.categoria = "Tecnologia";
-      /*  
-        this.islastpost = function(){
-            return lastpost;
-        };
-        this.islastcategorypost = function(category){
-            for(i=0; i<singlePost.length;i++){
-                if(singlePost.category === category){
-                    this.lastpost = singlePost[i];
-                    break;
-                }
-            }
-        };*/
+        this.categoria = "";
+        
+        this.setCat = function(novo){
+            this.categoria = novo;            
+            console.log(this.categoria);
+        };    
+    
     });
+    
+    
+    
+    
     
     
     app.controller('CommentController',function(){
