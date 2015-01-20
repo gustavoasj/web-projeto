@@ -5,12 +5,19 @@
         this.date = new Date();
     });
 
-
+/*
+    app.controller('ContentController',['$http', function ($http){
+        var cont = this;
+        cont.posts = [];
+    $http.get('/teste.json').success(function(data){
+        cont.posts = data;
+    });
+*/
     app.controller('ContentController', function (){
         this.posts = singlePost;
         this.lastpost = singlePost[0];
-      /*  
-        this.islastpost = function(){
+        
+      /*  this.islastpost = function(){
             return lastpost;
         };
         this.islastcategorypost = function(category){
@@ -21,11 +28,15 @@
                 }
             }
         };*/
-    });
+    }); //nao esquecer de colocar o ]
     
+
+    //acho que no futuro nao vai precisar do controle de categoria.
+    //iremos fazer tudo no content. iremos apenas setar uma var de categoria,
+    //e quando for imprimir as noticias dessa categoria apenas usa o ng-if no vetor de noticias
     app.controller('CategoryController', function (){
         this.postsCategoria = singlePost;
-        this.categoria = "";
+        this.categoria = "Tecnologia";
         
         this.setCat = function(novo){
             this.categoria = novo;            
